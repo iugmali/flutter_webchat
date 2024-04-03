@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  flutter_webchat:
+    build:
+      context: .
+    container_name: flutter_webchat
+    restart: always
+    networks:
+      - nginx-proxy-manager_default
+
+networks:
+  nginx-proxy-manager_default:
+    external: true
