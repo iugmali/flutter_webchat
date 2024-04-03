@@ -2,8 +2,6 @@
 
 Webchat app made with Flutter.
 
-Deployed web version: [https://webchat.nosmove.com](https://webchat.nosmove.com)
-
 ## Setup
 
 If you want to run the app locally, you need to have Flutter installed.
