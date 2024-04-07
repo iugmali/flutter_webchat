@@ -23,7 +23,7 @@ class MessageItem extends StatelessWidget {
                   style: GoogleFonts.jetBrainsMono(
                       fontSize: 12, color: Colors.grey)),
             )
-          : Container(
+          : SizedBox(
               width: MediaQuery.of(context).size.width * 0.5,
               child: Card(
                 elevation: 5,
@@ -32,24 +32,27 @@ class MessageItem extends StatelessWidget {
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                    Text(
-                      "${message.author}:",
-                      style: GoogleFonts.lato(
-                          fontWeight: FontWeight.bold, fontSize: 24),
-                      textAlign: TextAlign.left,
-                    ),
-                    Text(
-                      message.text,
-                      style: GoogleFonts.jetBrainsMono(fontSize: 16),
-                      textAlign: TextAlign.left,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [Text(
-                        "${message.timestamp.toLocal().day.toString().padLeft(2, '0')}/${message.timestamp.toLocal().month.toString().padLeft(2, '0')}/${message.timestamp.toLocal().year.toString().padLeft(4, '0')} ${message.timestamp.toLocal().hour.toString().padLeft(2, '0')}:${message.timestamp.toLocal().minute.toString().padLeft(2, '0')}:${message.timestamp.toLocal().second.toString().padLeft(2, '0')}"
-                          , style: GoogleFonts.jetBrainsMono(fontSize: 12, color: Colors.grey))],
-                    )
-                  ]),
+                        Text(
+                          "${message.author}:",
+                          style: GoogleFonts.lato(
+                              fontWeight: FontWeight.bold, fontSize: 24),
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          message.text,
+                          style: GoogleFonts.jetBrainsMono(fontSize: 16),
+                          textAlign: TextAlign.left,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                                "${message.timestamp.toLocal().day.toString().padLeft(2, '0')}/${message.timestamp.toLocal().month.toString().padLeft(2, '0')}/${message.timestamp.toLocal().year.toString().padLeft(4, '0')} ${message.timestamp.toLocal().hour.toString().padLeft(2, '0')}:${message.timestamp.toLocal().minute.toString().padLeft(2, '0')}:${message.timestamp.toLocal().second.toString().padLeft(2, '0')}",
+                                style: GoogleFonts.jetBrainsMono(
+                                    fontSize: 12, color: Colors.grey))
+                          ],
+                        )
+                      ]),
                 ),
               ),
             ),

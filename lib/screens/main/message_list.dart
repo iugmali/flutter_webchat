@@ -9,7 +9,8 @@ import 'package:flutter_webchat/services/messages_store.dart';
 class MessageList extends StatelessWidget {
   MessageList({super.key});
 
-  var messagesStore = getIt<MessagesStore>();
+  final messagesStore = getIt<MessagesStore>();
+
   final ScrollController _controller = ScrollController();
 
 
@@ -26,11 +27,11 @@ class MessageList extends StatelessWidget {
 
     return Observer(
       builder: (_) {
+        Timer(const Duration(milliseconds: 100), () => _scrollDown());
         return ListView.builder(
           controller: _controller,
           itemCount: messagesStore.messages.length,
           itemBuilder: (_, index) {
-            Timer(const Duration(milliseconds: 100), () => _scrollDown());
             var message = messagesStore.messages[index];
             return MessageItem(message, key: Key(message.id));
           },

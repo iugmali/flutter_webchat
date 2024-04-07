@@ -9,8 +9,8 @@ Future<int> userCheck(String username) async {
 }
 
 class UsernameForm extends StatefulWidget {
-  void Function(String) onSubmit;
-  UsernameForm({required this.onSubmit, super.key});
+  final void Function(String) onSubmit;
+  const UsernameForm({required this.onSubmit, super.key});
 
   @override
   State<UsernameForm> createState() => _UsernameFormState();

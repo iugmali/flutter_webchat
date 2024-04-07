@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webchat/main.dart';
+import 'package:flutter_webchat/screens/config/config_screen.dart';
 import 'package:flutter_webchat/services/username_store.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -13,35 +14,25 @@ class MyDrawer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          InkWell(
-            onTap: () {
-              // Navigator.pop(context);
-              // Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //         builder: (context) => const ConfigurationPage()));
-            },
-            child: Container(
-                padding:
-                const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                width: double.infinity,
-                child: Row(
-                  children:  [
-                    const Icon(Icons.person),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    Text(_username),
-                  ],
-                )),
+          DrawerHeader(
+            decoration: const BoxDecoration(
+              color: Colors.blue,
+            ),
+            child: Text(
+              _username,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+              ),
+            ),
           ),
           InkWell(
             onTap: () {
-              // Navigator.pop(context);
-              // Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //         builder: (context) => const ConfigurationPage()));
+              Navigator.pop(context);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ConfigScreen()));
             },
             child: Container(
                 padding:
