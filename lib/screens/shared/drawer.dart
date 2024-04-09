@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_webchat/main.dart';
 import 'package:flutter_webchat/screens/config/config_screen.dart';
 import 'package:flutter_webchat/screens/main/main_screen.dart';
@@ -21,11 +23,14 @@ class MyDrawer extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
               ),
-              child: Text(
-                _username,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  _username,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
                 ),
               ),
             ),
