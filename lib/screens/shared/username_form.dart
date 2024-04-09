@@ -24,6 +24,12 @@ class _UsernameFormState extends State<UsernameForm> {
 
   final _usernameController = TextEditingController();
 
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    super.dispose();
+  }
+
   void _submit() async {
     var username = _usernameController.text;
     if (username.isEmpty) {
