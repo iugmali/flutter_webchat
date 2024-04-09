@@ -38,8 +38,78 @@
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+
+  <style>
+    :root {
+      --lightest: #5194C0;
+      --light: #2D6AAB;
+      --dark: #164588;
+      --darkest: #0E3476;
+    }
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #D5E6EF;
+      background-image: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,153,212,0) calc(15% + 100px), rgba(0,99,138,0) calc(85% + 100px), rgba(0,0,0,0.15) 100%);
+    }
+    div.container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    div > div {
+      width: 3vw;
+      height: 3vw;
+      border-radius: 100%;
+      margin: 2vw;
+      background-image: linear-gradient(145deg, rgba(255,255,255,0.5) 0%, rgba(0,0,0,0) 100%);
+      animation: bounce 1.5s 0.5s linear infinite;
+    }
+    .lightest {
+      background-color: var(--lightest);
+      animation-delay: 0.0s;
+    }
+
+    .light {
+      background-color: var(--light);
+      animation-delay: 0.15s;
+    }
+
+    .dark {
+      background-color: var(--dark);
+      animation-delay: 0.3s;
+    }
+
+    .darkest {
+      background-color: var(--darkest);
+      animation-delay: 0.45s;
+    }
+
+    @keyframes bounce {
+      0%, 50%, 100% {
+        transform: scale(1);
+      }
+      25% {
+        transform: scale(0.8);
+      }
+      75% {
+        transform: scale(1.2);
+      }
+    }
+  </style>
+
 </head>
 <body>
+
+  <div class="container" id="loading">
+    <div class="lightest"></div>
+    <div class="light"></div>
+    <div class="dark"></div>
+    <div class="darkest"></div>
+  </div>
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
