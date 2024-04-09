@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_webchat/main.dart';
 import 'package:flutter_webchat/screens/main/main_screen.dart';
+import 'package:flutter_webchat/services/username_store.dart';
+import 'package:flutter_webchat/services/webchat_client_service.dart';
 import 'package:http/http.dart' as http;
 
 Future<int> userCheck(String username) async {
@@ -9,14 +12,16 @@ Future<int> userCheck(String username) async {
 }
 
 class UsernameForm extends StatefulWidget {
-  final void Function(String) onSubmit;
-  const UsernameForm({required this.onSubmit, super.key});
+  const UsernameForm({super.key});
 
   @override
   State<UsernameForm> createState() => _UsernameFormState();
 }
 
 class _UsernameFormState extends State<UsernameForm> {
+  final usernameStore = getIt<UsernameStore>();
+  final socket = getIt<WebchatClientService>().socket;
+
   final _usernameController = TextEditingController();
 
   void _submit() async {
@@ -24,9 +29,19 @@ class _UsernameFormState extends State<UsernameForm> {
     if (username.isEmpty) {
       return;
     }
+    if (username == usernameStore.username) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('$username já é o seu username atual'),
+        ),
+      );
+      return;
+    }
     switch (await userCheck(username)) {
       case 204:
-        widget.onSubmit(username);
+        socket.emit('leave', usernameStore.username);
+        usernameStore.setUsername(username);
+        socket.emit('join', username);
         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => const MainScreen()));
         return;
       case 400:

@@ -10,21 +10,14 @@ class WelcomeScreen extends StatelessWidget {
   WelcomeScreen({super.key});
 
   final usernameStore = getIt<UsernameStore>();
-  final socket = getIt<WebchatClientService>().socket;
-
-
-  void _onUsernameSubmitted(String username) {
-    usernameStore.setUsername(username);
-    socket.emit('join', username);
-  }
 
   @override
   Widget build(BuildContext context) {
     return Observer(builder: (_) {
       final String username = usernameStore.username;
       return username.isEmpty
-          ? Scaffold(
-            body: UsernameForm(onSubmit: _onUsernameSubmitted),
+          ? const Scaffold(
+            body: UsernameForm(),
       )
           : const MainScreen();
     });
