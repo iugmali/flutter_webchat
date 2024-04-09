@@ -1,24 +1,22 @@
 # flutter_webchat
 
-Webchat app made with Flutter.
+Aplicativo de chat feito com Flutter como client socket.io.
 
 ## Setup
 
-If you want to run the app locally, you need to have Flutter installed.
-
-If you make changes to the icon, you need to run:
+Se você não tem o Flutter instalado, siga as instruções em https://flutter.dev/docs/get-started/install
+Ao alterar o ícone do aplicativo, execute o comando abaixo:
 
 ```bash
 dart run flutter_launcher_icons
 ```
 
-If you make changes to a mobx store file, you need to run:
+Se alterar um serviço store, do mobx, execute o comando abaixo para atualizar os arquivos auto gerados (g.dart): 
 ```bash
 dart run build_runner build
 ```
-in order to generate the mobx store auto generated files.
 
-## Running the app
+## Rodando a aplicação
 
 ```bash
 flutter pub get
