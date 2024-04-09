@@ -25,6 +25,13 @@ class _UsernameFormState extends State<UsernameForm> {
   final _usernameController = TextEditingController();
 
   @override
+  void initState() {
+    super.initState();
+    _usernameController.text = usernameStore.username;
+  }
+
+
+  @override
   void dispose() {
     _usernameController.dispose();
     super.dispose();
