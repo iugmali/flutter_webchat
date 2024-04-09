@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webchat/main.dart';
 import 'package:flutter_webchat/screens/config/config_screen.dart';
+import 'package:flutter_webchat/screens/main/main_screen.dart';
 import 'package:flutter_webchat/services/username_store.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -14,25 +15,50 @@ class MyDrawer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          DrawerHeader(
-            decoration: const BoxDecoration(
-              color: Colors.blue,
-            ),
-            child: Text(
-              _username,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 24,
+          SizedBox(
+            width: double.infinity,
+            child: DrawerHeader(
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+              ),
+              child: Text(
+                _username,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
               ),
             ),
           ),
           InkWell(
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(
+              Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => ConfigScreen()));
+                      builder: (context) => const MainScreen()));
+            },
+            child: Container(
+                padding:
+                const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                width: double.infinity,
+                child: const Row(
+                  children:  [
+                    Icon(Icons.message),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text("Tela do chat"),
+                  ],
+                )),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ConfigScreen()));
             },
             child: Container(
                 padding:
@@ -42,9 +68,9 @@ class MyDrawer extends StatelessWidget {
                   children:  [
                     Icon(Icons.settings),
                     SizedBox(
-                      width: 5,
+                      width: 10,
                     ),
-                    Text("Configurações"),
+                    Text("Alterar username"),
                   ],
                 )),
           ),
