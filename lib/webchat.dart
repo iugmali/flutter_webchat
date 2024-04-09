@@ -3,8 +3,6 @@ import 'package:flutter_webchat/screens/welcome/welcome_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_webchat/services/dark_mode_service.dart';
 
-
-
 class Webchat extends StatelessWidget {
   const Webchat({super.key});
 
@@ -19,8 +17,14 @@ class Webchat extends StatelessWidget {
         return MaterialApp(
           title: 'Webchat',
           theme: darkModeService.darkMode
-              ? ThemeData.dark(useMaterial3: true,)
-              : ThemeData(useMaterial3: true,),
+              ? ThemeData.dark(
+                  useMaterial3: true,
+                )
+              : ThemeData(
+                  colorScheme: ColorScheme.fromSeed(seedColor:
+                      const Color.fromARGB(255, 57, 57, 30)),
+                  useMaterial3: true,
+                ),
           home: WelcomeScreen(),
         );
       }),
