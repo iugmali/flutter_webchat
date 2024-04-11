@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_webchat/main.dart';
-import 'package:flutter_webchat/screens/main/main_screen.dart';
-import 'package:flutter_webchat/screens/shared/username_form.dart';
+import 'package:flutter_webchat/widgets/screens/main/main_screen.dart';
+import 'package:flutter_webchat/widgets/shared/username_form.dart';
 import 'package:flutter_webchat/services/username_store.dart';
 
 class WelcomeScreen extends StatelessWidget {

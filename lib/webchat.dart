@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_webchat/screens/welcome/welcome_screen.dart';
+import 'package:flutter_webchat/widgets/screens/config/config_screen.dart';
+import 'package:flutter_webchat/widgets/screens/main/main_screen.dart';
 import 'package:provider/provider.dart';
+
+import 'package:flutter_webchat/widgets/screens/welcome/welcome_screen.dart';
 import 'package:flutter_webchat/services/dark_mode_service.dart';
 
 class Webchat extends StatelessWidget {
@@ -25,7 +28,15 @@ class Webchat extends StatelessWidget {
                       const Color.fromARGB(255, 57, 57, 30)),
                   useMaterial3: true,
                 ),
-          home: WelcomeScreen(),
+          initialRoute: '/',
+          routes: {
+            '/': (context) => WelcomeScreen(),
+            MainScreen.routeName: (context) => const MainScreen(),
+            ConfigScreen.routeName: (context) => const ConfigScreen(),
+          },
+          onUnknownRoute: (settings) {
+            return MaterialPageRoute(builder: (context) => WelcomeScreen());
+          },
         );
       }),
     );

@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_webchat/main.dart';
-import 'package:flutter_webchat/screens/config/config_screen.dart';
-import 'package:flutter_webchat/screens/main/main_screen.dart';
+import 'package:flutter_webchat/widgets/screens/config/config_screen.dart';
+import 'package:flutter_webchat/widgets/screens/main/main_screen.dart';
 import 'package:flutter_webchat/services/username_store.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -38,10 +38,7 @@ class MyDrawer extends StatelessWidget {
           InkWell(
             onTap: () {
               Navigator.pop(context);
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const MainScreen()));
+              Navigator.pushReplacementNamed(context, MainScreen.routeName);
             },
             child: Container(
                 padding:
@@ -60,10 +57,7 @@ class MyDrawer extends StatelessWidget {
           InkWell(
             onTap: () {
               Navigator.pop(context);
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const ConfigScreen()));
+              Navigator.pushReplacementNamed(context, ConfigScreen.routeName);
             },
             child: Container(
                 padding:

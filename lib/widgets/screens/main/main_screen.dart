@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_webchat/screens/main/message_form.dart';
-import 'package:flutter_webchat/screens/main/message_list.dart';
-import 'package:flutter_webchat/screens/shared/app_bar.dart';
-import 'package:flutter_webchat/screens/shared/drawer.dart';
+import 'package:flutter_webchat/widgets/screens/main/message_form.dart';
+import 'package:flutter_webchat/widgets/screens/main/message_list.dart';
+import 'package:flutter_webchat/widgets/shared/app_bar.dart';
+import 'package:flutter_webchat/widgets/shared/drawer.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
+  static const routeName = '/chat';
 
   @override
   Widget build(BuildContext context) {

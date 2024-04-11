@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_webchat/main.dart';
-import 'package:flutter_webchat/screens/main/message_item.dart';
+import 'package:flutter_webchat/widgets/screens/main/message_item.dart';
 import 'package:flutter_webchat/services/messages_store.dart';
 
 class MessageList extends StatelessWidget {
