@@ -43,6 +43,7 @@ class _UsernameFormState extends State<UsernameForm> {
       return;
     }
     if (username == usernameStore.username) {
+      ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('$username já é o seu username atual'),
