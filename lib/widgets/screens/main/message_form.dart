@@ -15,12 +15,12 @@ class _MessageFormState extends State<MessageForm> {
   var usernameStore = getIt<UsernameStore>();
 
   final _messageController = TextEditingController();
-  late FocusNode messageFocusNode;
+  late FocusNode _messageFocusNode;
 
   @override
   void initState() {
     super.initState();
-    messageFocusNode = FocusNode();
+    _messageFocusNode = FocusNode();
   }
 
   void _sendMessage() {
@@ -28,8 +28,15 @@ class _MessageFormState extends State<MessageForm> {
     if (message.isNotEmpty) {
       socket.emit('message', {'author': usernameStore.username, 'text': message});
       _messageController.clear();
-      messageFocusNode.requestFocus();
+      _messageFocusNode.requestFocus();
     }
+  }
+
+  @override
+  void dispose() {
+    _messageFocusNode.dispose();
+    _messageController.dispose();
+    super.dispose();
   }
 
   @override
@@ -41,7 +48,7 @@ class _MessageFormState extends State<MessageForm> {
           Expanded(
             child: TextField(
               autofocus: true,
-              focusNode: messageFocusNode,
+              focusNode: _messageFocusNode,
               controller: _messageController,
               onSubmitted: (_) {
                 _sendMessage();
